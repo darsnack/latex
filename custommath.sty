@@ -1,0 +1,41 @@
+%------------------------------------------------------------------------------
+% Custom Math Styles
+%------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{custommath}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+\newcommand{\QED}[0]{\blacksquare}
+
+% Derivative and fractions
+\newcommand{\diff}[1]{\mathrm{d}#1}
+\newcommand{\lfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\deriv}[2]{\frac{\diff{#1}}{\diff{#2}}}
+\newcommand{\pderiv}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\grad}[2]{\nable_{#1} #2}
+
+% Set notations
+\newcommand{\set}[1]{\mathbb{#1}}
+
+% Logic notations
+\newcommand{\lequiv}[0]{\Leftrightarrow}
+
+% Matrix notations
+\newcommand{\rank}[1]{\text{rank}\left(#1\right)}
+\newcommand{\range}[1]{\mathcal{R}\left(#1\right)}
+\newcommand{\nullspace}[1]{\mathcal{N}\left(#1\right)}
+\newcommand{\vspan}[1]{\text{span}\left(#1\right)}
+\newenvironment{amatrix}[1]{%
+  \begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}
+}
+
+% Special functions
+\newcommand{\bigo}[1]{\mathcal{O}\left(#1\right)}
+
+\endinput

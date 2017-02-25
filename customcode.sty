@@ -1,0 +1,32 @@
+%------------------------------------------------------------------------------
+% Custom Code Styles
+%------------------------------------------------------------------------------
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{customcode}
+
+\RequirePackage{listings}
+\RequirePackage{color}
+
+\newcommand{\code}[1]{{\texttt{#1}}}
+
+\lstdefinestyle{matlab}{
+	language=Matlab,
+	frame=L,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue},
+}
+
+\lstdefinestyle{c}{
+	language=C,
+	frame=L,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue},
+}
+
+\lstdefinestyle{shell}{
+	language=bash,
+	frame=L,
+	basicstyle=\ttfamily,
+	keywordstyle=\color{blue},
+}
