@@ -8,7 +8,11 @@
 \RequirePackage{listings}
 \RequirePackage{color}
 
+\definecolor{codeblue}{rgb}{0.1, 0.1, 0.8}
+
 \newcommand{\code}[1]{{\texttt{#1}}}
+\newcommand{\shell}[2]{\hspace*{10 pt} \texttt{#1 >> } {\color{codeblue}\texttt{#2}}}
+\newcommand{\stdout}[1]{\hspace*{10 pt} {\color{red} \texttt{#1}}}
 
 \lstdefinestyle{matlab}{
 	language=Matlab,
