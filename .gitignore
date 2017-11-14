@@ -1,5 +1,6 @@
 # Ignore miscellaneous class and style files
 nips_2016/
+ISCA2018-latex-template/
 
 # Special ignore for macOS
 *.DS_Store
