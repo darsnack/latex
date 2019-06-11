@@ -26,6 +26,8 @@
 \newlength{\pharmposter@paperheight}
 \newlength{\pharmposter@paperwidth}
 \newlength{\pharmposter@headerheight}
+\newif\if@frames
+\@framesfalse
 \newif\if@portrait
 \newcommand{\pharmposter@setpapersize}[3]{
 \if@portrait
@@ -39,6 +41,7 @@
 }
 
 % Declare options
+\DeclareOption{frames}{\@framestrue}
 \DeclareOption{portrait}{\@portraittrue}
 \DeclareOption{landscape}{\@portraitfalse}
 \DeclareOption{ArchD}{\pharmposter@setpapersize{24in}{36in}{4in}}
@@ -65,7 +68,7 @@
 
 % Define font sizes
 \renewcommand{\tiny}{\fontsize{12}{14}\selectfont}
-\renewcommand{\scriptsize}{\fontsize{14.4}{18}\selectfont}   
+\renewcommand{\scriptsize}{\fontsize{14.4}{18}\selectfont}
 \renewcommand{\footnotesize}{\fontsize{17.28}{22}\selectfont}
 \renewcommand{\small}{\fontsize{20.74}{25}\selectfont}
 \renewcommand{\normalsize}{\fontsize{24.88}{30}\selectfont}
@@ -91,7 +94,7 @@
 		{\begin{center} \sffamily \bfseries \VeryHuge \@title \end{center}}
 }}}
 \rhead{\raisebox{-0.5\height}{
-	\parbox{0.17\textwidth} {
+	\parbox{0.25\textwidth} {
 		{\begin{flushright} \sffamily \Huge \@author \end{flushright}}
 	}
 	\hspace{0.01\textwidth}
@@ -99,9 +102,15 @@
 \lfoot{}\cfoot{}\rfoot{}
 
 % Create section boxes
-\newenvironment{sectionbox}[1]
-{\begin{tcolorbox}[breakable,colback=white,colframe=badgerred,boxrule=1mm,titlerule=4mm,toptitle=1mm,title={\LARGE #1}]}
-{\end{tcolorbox} \vspace{0.25in} \vfill}
+\if@frames
+	\newenvironment{sectionbox}[1]
+	{\begin{tcolorbox}[breakable,colback=white,colframe=badgerred,boxrule=1mm,titlerule=4mm,toptitle=1mm,borderline horizontal={1mm}{0pt}{badgerred},title={\LARGE #1}]}
+	{\end{tcolorbox} \vspace{0.25in} \vfill}
+\else
+	\newenvironment{sectionbox}[1]
+	{\begin{tcolorbox}[empty,breakable,colback=white,titlerule=4mm,toptitle=1mm,borderline horizontal={1mm}{0pt}{badgerred},coltitle=badgerred,toptitle=5mm,title={\LARGE #1}]}
+	{\end{tcolorbox} \vspace{0.25in} \vfill}
+\fi
 
 \AtBeginDocument{
 	\Large
