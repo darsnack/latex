@@ -21,6 +21,10 @@
 	use={block title, normal text},
 	bg=block title.bg!30!normal text.bg
 }
+\setbeamercolor{block title alerted}{
+    use={block title},
+    bg=block title.bg!10
+}
 %\metroset{block=fill}
 % \newcommand\brbold[1]{\textcolor{badgerred}{\textbf{#1}}}
 
@@ -31,3 +35,7 @@
 \let\endchangemargin=\endlist
 
 \titlegraphic{\vspace{7cm} \hspace{-0.4cm} \includegraphics[scale=0.23]{red-flush-UWlogo.pdf} \includegraphics[scale=0.2]{pharm_homepage.pdf}}
+
+\newenvironment{alertbox}
+{\begin{beamercolorbox}[center, sep=0.5em]{block body}}
+{\end{beamercolorbox}}
