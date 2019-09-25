@@ -10,7 +10,10 @@
 \ProvidesPackage{pharmpresentation}
 
 \RequirePackage{xcolor}
+\RequirePackage{pgf}
 %\RequirePackage{appedixnumberbeamer}
+
+\newcommand{\getlength}[2]{\pgfmathtruncatemacro#1{round(3.51459804*#2)/100.0}} % result in cm
 
 \mode<presentation>{\usetheme[numbering=fraction]{metropolis}}
 \definecolor{badgerred}{cmyk}{0.03, 1, 0.66, 0.12}
@@ -34,7 +37,13 @@
 \def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
 
-\titlegraphic{\vspace{7cm} \hspace{-0.4cm} \includegraphics[scale=0.23]{red-flush-UWlogo.pdf} \includegraphics[scale=0.2]{pharm_homepage.pdf}}
+\getlength{\h}{\beamer@paperheight}
+
+\ifnum\h=9
+	\titlegraphic{\vspace{6.5cm} \hspace{-0.4cm} \includegraphics[scale=0.23]{red-flush-UWlogo.pdf} \includegraphics[scale=0.2]{pharm_homepage.pdf}}
+\else
+	\titlegraphic{\vspace{7cm} \hspace{-0.4cm} \includegraphics[scale=0.23]{red-flush-UWlogo.pdf} \includegraphics[scale=0.2]{pharm_homepage.pdf}}
+\fi
 
 \newenvironment{alertbox}
 {\begin{beamercolorbox}[center, sep=0.5em]{block body}}
